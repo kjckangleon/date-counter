@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Date for ranking test</title>
+</head>
+<body>
+  <div class='container'>
+    <div class="text-container">
+      <label for="date-start-lastweek">Date Start of Last Week:</label>
+      <span id="start-last-week"></span>
+    </div>
+    <div class="text-container">
+      <label for="date-end-lastweek">Date End of Last Week:</label>
+      <span id="end-last-week"></span>
+    </div>
+    <div class="text-container">
+      <label for="date-start-thisweek">Date Start of This Week:</label>
+      <span id="start-this-week"></span>
+    </div>
+    <div class="text-container">
+      <label for="date-end-thisweek">Date End of This Week:</label>
+      <span id="end-this-week"></span>
+    </div>
+  </div>
+  <script>
+    let today = new Date();
+
+    let  startLastWeekContainer = document.getElementById('start-last-week');
+    let  endLastWeekContainer = document.getElementById('end-last-week');
+    let  startThisWeekContainer = document.getElementById('start-this-week');
+    let  endThisWeekContainer = document.getElementById('end-this-week');
+
+
+    let dateStartLastWeek = formatTime(new Date(new Date().setDate(new Date().getDate()-15)));
+    let dateEndLastWeek = formatTime(new Date(new Date().setDate(new Date().getDate()-9))); 
+    let dateStartThisWeek = formatTime(new Date(new Date().setDate(new Date().getDate()-8))); 
+    let dateEndtThisWeek = formatTime(new Date(new Date().setDate(new Date().getDate()-1))); 
+
+    startLastWeekContainer.innerHTML = dateStartLastWeek;
+    endLastWeekContainer.innerHTML = dateEndLastWeek;
+    startThisWeekContainer.innerHTML = dateStartThisWeek;
+    endThisWeekContainer.innerHTML = dateEndtThisWeek;
+
+    function formatTime(value) {
+      let formattedTime = `${value.toLocaleDateString().replaceAll('/','-')} ${value.toTimeString()}`;
+      let spltValue = formattedTime.split(' ');
+      
+      return `${spltValue[0]} ${spltValue[1]}`;
+    }
+
+  </script>
+  <style>
+   .container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    align-items: center;
+    font-size: x-large;
+   }
+
+   .text-container {
+     padding: 10px;
+   }
+
+   .text-container label {
+     font-weight: bold;
+   }
+  </style>
+  
+</body>
+</html>
