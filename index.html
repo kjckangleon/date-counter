@@ -33,16 +33,17 @@
     let  startThisWeekContainer = document.getElementById('start-this-week');
     let  endThisWeekContainer = document.getElementById('end-this-week');
 
+    setInterval(() => {
+      let dateStartLastWeek = formatTime(new Date(new Date().setDate(new Date().getDate()-15)));
+      let dateEndLastWeek = formatTime(new Date(new Date().setDate(new Date().getDate()-9))); 
+      let dateStartThisWeek = formatTime(new Date(new Date().setDate(new Date().getDate()-8))); 
+      let dateEndtThisWeek = formatTime(new Date(new Date().setDate(new Date().getDate()-1))); 
 
-    let dateStartLastWeek = formatTime(new Date(new Date().setDate(new Date().getDate()-15)));
-    let dateEndLastWeek = formatTime(new Date(new Date().setDate(new Date().getDate()-9))); 
-    let dateStartThisWeek = formatTime(new Date(new Date().setDate(new Date().getDate()-8))); 
-    let dateEndtThisWeek = formatTime(new Date(new Date().setDate(new Date().getDate()-1))); 
-
-    startLastWeekContainer.innerHTML = dateStartLastWeek;
-    endLastWeekContainer.innerHTML = dateEndLastWeek;
-    startThisWeekContainer.innerHTML = dateStartThisWeek;
-    endThisWeekContainer.innerHTML = dateEndtThisWeek;
+      startLastWeekContainer.innerHTML = dateStartLastWeek;
+      endLastWeekContainer.innerHTML = dateEndLastWeek;
+      startThisWeekContainer.innerHTML = dateStartThisWeek;
+      endThisWeekContainer.innerHTML = dateEndtThisWeek;
+    }, 1000);
 
     function formatTime(value) {
       let formattedTime = `${value.toLocaleDateString().replaceAll('/','-')} ${value.toTimeString()}`;
