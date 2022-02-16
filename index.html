@@ -46,7 +46,7 @@
     }, 1000);
 
     function formatTime(value) {
-      let formattedTime = `${value.toLocaleDateString().replaceAll('/','-')} ${value.toTimeString()}`;
+      let formattedTime = `${value.toLocaleDateString('fr-CA').replaceAll('/','-')} ${value.toTimeString()}`;
       let spltValue = formattedTime.split(' ');
       
       return `${spltValue[0]} ${spltValue[1]}`;
